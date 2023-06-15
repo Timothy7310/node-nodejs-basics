@@ -1,5 +1,18 @@
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const pathToFolder = path.join(__dirname, path.sep, "files");
+
 const list = async () => {
-    // Write your code here 
+  fs.readdir(pathToFolder, {}, (err, files) => {
+    if (err && err.code === "ENOENT") {
+      throw err;
+    }
+    console.log(files);
+  });
 };
 
 await list();
