@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const pathToFolder = path.join(__dirname, path.sep, "files");
+const pathToFolder = path.join(__dirname, "files");
 
 const list = async () => {
   fs.readdir(pathToFolder, {}, (err, files) => {

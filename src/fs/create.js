@@ -6,10 +6,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const create = async () => {
   // 1
-  fs.access(path.join(__dirname, "/files", "fresh.txt"), (err) => {
+  fs.access(path.join(__dirname, "files", "fresh.txt"), (err) => {
     if (err) {
       fs.writeFile(
-        path.join(__dirname, "/files", "fresh.txt"),
+        path.join(__dirname, "files", "fresh.txt"),
         "I am fresh and young",
         (err) => {
           if (err) {
@@ -23,12 +23,12 @@ const create = async () => {
   });
 
   // 2
-  // fs.stat(path.join(__dirname, "/files", "fresh.txt"), (err) => {
+  // fs.stat(path.join(__dirname, "files", "fresh.txt"), (err) => {
   //   if (err === null) {
   //     throw Error("FS operation failed");
   //   } else if (err.code === "ENOENT") {
   //     fs.writeFile(
-  //       path.join(__dirname, "/files", "fresh.txt"),
+  //       path.join(__dirname, "files", "fresh.txt"),
   //       "I am fresh and young",
   //       (err) => {
   //         if (err) {
