@@ -13,7 +13,13 @@ const compress = async () => {
     const source = fs.createReadStream(pathToFile);
     const destination = fs.createWriteStream(pathToNewFile);
     
-    source.pipe(gzip).pipe(destination)
+    source.pipe(gzip).pipe(destination).on('finish', () => {
+        fs.rm(pathToFile, (err) => {
+            if (err) {
+                throw err
+            }
+        })
+    })
 };
 
 await compress();
